@@ -1,3 +1,5 @@
+
+
 // Removal of all adjacent duplicate in a string's'
 // leetcode 1047;
 // #include <iostream>
@@ -75,51 +77,51 @@
 
 // Palindromic substring..;
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int expandAroundCenter(string s, int i, int j){
-    int count = 0;
+// int expandAroundCenter(string s, int i, int j){
+//     int count = 0;
 
-    while(i >= 0 && j < s.length() && s[i] == s[j]){
-           count++;
-           i--;
-           j++;
-    }
-    return count;
-}
+//     while(i >= 0 && j < s.length() && s[i] == s[j]){
+//            count++;
+//            i--;
+//            j++;
+//     }
+//     return count;
+// }
 
 
-int totalCount(string s, int size){
-    int totalCount = 0;
+// int totalCount(string s, int size){
+//     int totalCount = 0;
 
-    for(int center = 0; center< s.length(); center++){
-        int i = center;
-        int j = center;
+//     for(int center = 0; center< s.length(); center++){
+//         int i = center;
+//         int j = center;
 
-        int oddCount = expandAroundCenter(s, i, j);
+//         int oddCount = expandAroundCenter(s, i, j);
 
-        // even;
+//         // even;
 
-        i = center;
-        j = center + 1;
+//         i = center;
+//         j = center + 1;
 
-        int evenCount = expandAroundCenter(s, i, j);
+//         int evenCount = expandAroundCenter(s, i, j);
 
-        totalCount += oddCount + evenCount;
-    }
-    return totalCount;
-}
+//         totalCount += oddCount + evenCount;
+//     }
+//     return totalCount;
+// }
 
-int main(){
-    string s = "aab";
-    int size = s.length();
+// int main(){
+//     string s = "aab";
+//     int size = s.length();
     
-    int ans = totalCount(s, size);
+//     int ans = totalCount(s, size);
 
-    cout << ans << " Ye hai TotalCount" << endl;
+//     cout << ans << " Ye hai TotalCount" << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 
