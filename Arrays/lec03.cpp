@@ -334,7 +334,7 @@ void getTransporseInSameMatrix(int arr[][3], int rowSize, int colSize){
           // mughe yha p same array s swap karna hai okkh and uske baad wahi array [print karna hai okkh!..
           
            for(int i = 0; i<rowSize; i++){
-           for(int j = 0; j<colSize; j++){
+           for(int j = i; j<colSize; j++){
                  swap(arr[i][j], arr[j][i]);
            }
         }
@@ -367,5 +367,4 @@ int main (){
      getTransporseByDiffMatrix(arr, rowSize, colSize);
 
      getTransporseInSameMatrix(arr, rowSize, colSize);
-
 }
