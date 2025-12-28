@@ -151,10 +151,10 @@
 
 // creating 2-d array by vector!..
 
-#include <iostream>
-#include <climits>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <climits>
+// #include <vector>
+// using namespace std;
 
 // normal array pass by ref hota hai but vector pass by value hota hai okkh!.. dhyan rakhio!..
 // agar maine isko pass by ref pass nhai kiya to copy banegi actaully value m change nahi hoga okkh!.. 
@@ -170,38 +170,38 @@ using namespace std;
 //        return false;
 // }
 
-int getMinimumValue(int arr[][4], int rowSize, int colSize) {
+// int getMinimumValue(int arr[][4], int rowSize, int colSize) {
       
-     int minAns = INT_MAX;
+//      int maxAns = INT_MIN;
 
-      for(int i = 0; i<rowSize; i++){
-           for(int j = 0; j<colSize; j++){
-                if(minAns > arr[i][j]){
-                     minAns = arr[i][j];
-                }
-           }
-      }
-      return minAns;
+//       for(int i = 0; i<rowSize; i++){
+//            for(int j = 0; j<colSize; j++){
+//                 if(maxAns < arr[i][j]){
+//                      maxAns = arr[i][j];
+//                 }
+//            }
+//       }
+//       return maxAns;
 
-      cout << "data mila hi nahi hai okkh!.." << endl;
-}
+//       cout << "data mila hi nahi hai okkh!.." << endl;
+// }
 
 
-int main () {
+// int main () {
 
-     int arr[3][4] = {
-                    {10,20,30,70},
-                    {40,50,60,100},
-                    {70,80,90, 2}
+//      int arr[3][4] = {
+//                     {10,20,30,70},
+//                     {40,50,60,100},
+//                     {70,80,90, 2}
 
-     };
+//      };
 
-     int rowSize = 3;
-     int colSize = 4;
+//      int rowSize = 3;
+//      int colSize = 4;
 
-     int ans = getMinimumValue(arr, rowSize, colSize);
+//      int ans = getMinimumValue(arr, rowSize, colSize);
 
-     cout << ans << " ";
+//      cout << ans << " ";
 
      // vector<vector<int>> arr  (3, vector<int>(4, 10));
 
@@ -227,8 +227,145 @@ int main () {
      // }
      
 
-     return 0;
-}
+//      return 0;
+// }
 
 // pass by value and pass by ref do chize hoti hai okh! 
 // pass by value ka matlb ye hota hai ki copy banegi and pass by ref ka matlb actully value m change hoga okkh!.
+
+
+// #include <iostream>
+// #include <algorithm>
+// using namespace std;
+
+
+// void getRowSum(int arr[][3], int rowSize, int colSize){
+//          // int sum = 0;  agar maine yha p intailize kar diya hia to sum upadte nahi hoga har row p
+//          // aur wo sare row and column ke element ka sum nikla lega okkh!..
+//        for(int i = 0; i<rowSize; i++){
+//             int sum = 0; // isi liye mughe yha p lena padega okkh!.. sum okkh! jisse mai har row p summ upadte like 0 kar paunga and row wise calculate kar dunga summ okkh!>.
+//            for(int j = 0; j<colSize; j++){
+//                 sum += arr[i][j];
+//            }
+//            cout << sum << endl;
+//        }
+// }
+
+// Column Wise Sum column ka uoar ayega and row ka nicche okh!.. and arr[row][col] ye revesre hota hia ye dhyan rahio okkh!..
+
+// void diagonalTraversal(int arr[][3], int rowSize, int colSize){
+//       int sum = 0;
+//       for(int i = 0; i<rowSize; i++){
+//            for(int j = 0; j<colSize; j++){
+//                  if(i == j){
+//                      sum += arr[i][j];
+//                  }
+//            }
+//       }
+//       cout << sum << endl; 
+// };
+
+//  void  ReserverDiagonalTraversal(int arr[][3], int rowSize, int colSize){
+//         int sum = 0;
+//         // yha p jo logic lagega wo i + j == m-1 hota hai where m = columnIndex okkh! 
+//         for(int i= 0; i<rowSize; i++){
+//            for(int j = 0; j<colSize; j++){
+//                  if(i+j == colSize-1){
+//                       sum += arr[i][j];
+//                  }
+//            }  
+//         }
+//         cout << sum << endl;
+// };
+
+// int main() {
+     
+//      int arr[3][3] = {
+//                      {10,10,10,},
+//                      {20,20,20},
+//                      {30,40,30},
+//      };
+
+//      int rowSize = 3;
+//      int colSize = 4;
+
+//    //  getRowSum(arr, rowSize, colSize);
+// //     // for column wise traversal hamm bass coolumn change kar denge okkh!. like 
+//      //columnWiseTraversal(arr, rowSize, colSize);
+
+//     // diagonal traversal okkh!..
+//     //diagonalTraversal(arr, rowSize, colSize);
+
+//     ReserverDiagonalTraversal(arr, rowSize, colSize);
+    
+//     return 0;
+// };
+
+
+
+// Transpose of a Mtarxi ayega yha p okh!..
+
+#include <iostream>
+using namespace std;
+
+void getTransporseByDiffMatrix(int arr[][3], int rowSize, int colSize){
+        // ek new array le lenge yha p and usme hamm transpose nikl denge okkh! 
+        // but isme yahi dikkat hai ki space-comp aa jayegi isko like o(n) ki 
+
+        int arr[100][100] = {0}; // size hamne random diya hai okkh!.
+
+        for(int i = 0; i<rowSize; i++){
+           for(int j = 0; j<colSize; j++){
+                 arr[i][j] == arr[j][i];
+           }
+        }
+
+        // yha p abb pura array aa jayega okh! usko traverse kar lo okkh!.
+
+        for(int i = 0; i<rowSize; i++){
+           for(int j = 0; j<colSize; j++){
+                 cout << arr[i][j] << " ";
+           }
+           cout << endl;
+        }
+};
+
+void getTransporseInSameMatrix(int arr[][3], int rowSize, int colSize){
+          // mughe yha p same array s swap karna hai okkh and uske baad wahi array [print karna hai okkh!..
+          
+           for(int i = 0; i<rowSize; i++){
+           for(int j = 0; j<colSize; j++){
+                 swap(arr[i][j], arr[j][i]);
+           }
+        }
+
+        // abb yha p wahi array jo swao hua hai usko traverse kar lo okkh!.
+
+         for(int i = 0; i<rowSize; i++){
+           for(int j = 0; j<colSize; j++){
+                 cout << arr[i][j] << " ";
+           }
+           cout << endl;
+        }
+
+        // iski t.c n^2 hai but space.Comp o(1) hai okkh!..
+}
+
+
+
+int main (){
+     int arr[3][3] = {
+               {10,11,12},
+               {13,14,15},
+               {16,17,18},
+     };
+
+
+     int rowSize = 3;
+     int colSize = 3;
+     
+     getTransporseByDiffMatrix(arr, rowSize, colSize);
+
+     getTransporseInSameMatrix(arr, rowSize, colSize);
+
+}
