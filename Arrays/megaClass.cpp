@@ -46,39 +46,81 @@
 // hashMap s simple yahi hota hai like ki isme hamm pehle frequency count karenge okkh!..
 // uske baad usi p loop lga k check karnge ki ye kitni bar exist karta hai okkh!.. 
 
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
+// #include <iostream>
+// #include <algorithm>
+// #include <unordered_map>
+// using namespace std;
 
-int getUniqueNumber(int arr[], int size){
-      // yha p mughe unordered map lagana padega okkh!..
-     unordered_map<int, int> mp;
-     // yha p chize key and value pair m store karte hai..
+// int getUniqueNumber(int arr[], int size){
+//       // yha p mughe unordered map lagana padega okkh!..
+//      unordered_map<int, int> mp;
+//      // yha p chize key and value pair m store karte hai..
       
-     for(int i = 0; i<size; i++){
-          mp[arr[i]]++;
-     }
+//      for(int i = 0; i<size; i++){
+//           mp[arr[i]]++;
+//      }
      
-     // yha number aaa jayega like uski frequency okkh!.. uske baad usme loop lga 
-     // and find karle kitne numbers hai uske agar 1 hai to wahi wala number return karde okkh!..
+//      // yha number aaa jayega like uski frequency okkh!.. uske baad usme loop lga 
+//      // and find karle kitne numbers hai uske agar 1 hai to wahi wala number return karde okkh!..
 
-     for(int i = 0; i<size; i++){
-       if( mp[arr[i]]++ == 1 ){
-           return arr[i];
-       }
-     }
-    return -1;
-}
+//      for(int i = 0; i<size; i++){
+//        if( mp[arr[i]]++ == 1 ){
+//            return arr[i];
+//        }
+//      }
+//     return -1;
+// }
 
-int main() {
-   int arr[] = {1,2,3,3,2,1,4};
-   int size = 7;
+// int main() {
+
+//    int arr[] = {1,2,3,3,2,1,4};
+//    int size = 7;
    
-   int ans = getUniqueNumber(arr, size);
+//    int ans = getUniqueNumber(arr, size);
 
-   cout << ans << " ";
+//    cout << ans << " ";
 
-   return 0;
+//    return 0;
 
-}
+// }
+
+
+
+// #include <iostream>
+// #include <algorithm>
+// #include <unordered_map>
+// using namespace std;
+
+// int main () {
+    
+//     // abhi ek unordered_map liya hai hamne okkh!..
+
+//     unordered_map<int, int> table; // time O(n) but s.c O(n) hi lagega okkh!.
+
+//     table[1] = 2;
+//     table[2] = 3;
+//     table[3] = 4;
+//     table[4] = 10;
+
+//     // yha s table bna gya hai ek like usme indexing hui hai 1, 2, 3, 4, 5 s 
+//     // and usme hi hamne indexing based nunber rajh diya hai okkh!..
+    
+//     // hamne tables to creates kar hi liye hai okh! abb is tables s chize excess karni hai!. thriugh iterator okh!..
+
+//     unordered_map<int, int>:: iterator it;
+
+//     for(it = table.begin(); it != table.end(); it++){
+//             int key = it->first;
+//             int value = it->second;
+
+//             cout << key << " " << endl;
+//             cout << value << "  " << endl;
+//     }
+   
+//     for(auto it: table){
+          
+//     }
+
+//     return 0;
+// }
+
