@@ -167,11 +167,10 @@ int main() {
     q.push(40);
     // 10->20->30->40;
    
-    q.front() ; // 10 ayega okkh!..
+    q.front(); // 10 ayega okkh!..
     q.back(); // 40 ayega okkh!.
     
     q.pop(); // always front wala hoga okkh!.. bcz yha p hamne intailze todhi kiya hai like ki front ka hai ya back ka hai okkh! like q.push_back() q.pop_back() etc etc okkh!>.
-    
     
     if(q.empty() == true){
           cout << "kahli hai queue apna okkj!" << " ";
@@ -182,6 +181,51 @@ int main() {
     cout << q.size() << endl; // isse quueu ki size aa jaygei okkh!>.
 
     // iterator ayega abb yha p 
+     
+    while(!q.empty()){
+         // jab tak tera queue khali nahi ho jata ta tak aage badho okkh!..
+         cout << q.front() << " "; 
+         q.pop();  // iska matlb ye ahi like ki front() wale ko pop print karo and then usi ko pop kardo okkh!..
+    }
+     
+    return 0;
+}
+
+// iske baad stack ata hai okkh!.. 
+// stack m hamm generallyy kuch chizo ka dhyan rakhte hai like..
+// empty(), size, push(), pop(), top(), // baas itna h =i hai okkh!..
+// top() s mai sabse upar wale ko excess kar leta hu okkh!..
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() { 
+    stack<int> s;
+    
+    s.push(10);
+    s.push(20);
+    s.push(30);
+    s.push(40);
+
+    // ek array ban gayi hai ye okk!.
+    // 10->20->30->40; 
+
+    s.pop(); // isse first elemnet dikhega okkh!..
+    s.top(); // jo sabse upar element hoga wo dikhega okkh!..
+
+    s.size(); // isse size aa jayega uska pure stack ka okk!..
+
+    s.empty(); // isse check karte hai hamm ki ye empty to nahi hia if yes to kcuh aur return kar do okh!,
+
+    // iterarte karne k liye mughe!>> yha p s.empty check karna padega okkh!.
+    // iterator s hamm nahi kar skte okkh!.. like iterator::it isse nahi kar sakte hamm 
+
+
+    while(!s.empty()){
+         cout << s.top() << endl;
+           s.pop(); // yha p abhi bhi dout hai todha sa like ki ye kyu aa rha hai okkh! iski jagah kuch aur hona chiaye tha bcz s.pop() to first remove karta tha na like s.pop_first() okkh!..?? 
+    }
 
     return 0;
 }
