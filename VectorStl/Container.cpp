@@ -25,29 +25,109 @@
 // vector mai like agar koi value excess karni padegi to mai * uske aage lga k kar lunga okkh!..
 // for an example ans.begin() isse address ayega us point ka but value chaiye to mai *ans.begin() kar dunga usse array ki value aa jayegi okh!.
 
+// #include <iostream>
+// using namespace std;
+// #include <vector>
+
+// int main () {
+     
+//     vector<int> marks;
+
+//     // abb agar mughe marks wale data mai kcuh bhi push karna hoga to mai push_back s kar dunag okkh!..
+
+//     marks.push_back(10);
+//     marks.push_back(20);
+//     marks.push_back(30);
+     
+//     // ek isme hi v.begin() ata hai wo first wale k liye hota hai first elemnt k liye okkh!!.
+//     // lats wala agar mugeh chaiye v.end() kar dunga okkh mai!.
+
+//     vector<int>::iterator it = marks.begin();
+
+//      while(it != marks.end()){
+//          cout << *it << " ";
+//          it++;
+//      }
+
+//     return 0;
+// }
+
+
+// List wala bhi ata hai ek!.. list wale ki ek creation bhi dekh l sahi s okkkh!..
+
+
 #include <iostream>
-using namespace std;
+#include <list>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-int main () {
+int main() {
+
+     list<int> nums;
      
-    vector<int> marks;
+     // isme abhi kuch fix nahi hai like ki size and value to mai yha p psuh karunag like nums.push_back(10);
+     // ek array banega jisme [10,] ayega and ata jayeyga okkh!..
 
-    // abb agar mughe marks wale data mai kcuh bhi push karna hoga to mai push_back s kar dunag okkh!..
-
-    marks.push_back(10);
-    marks.push_back(20);
-    marks.push_back(30);
+     nums.push_back(10);
+     nums.push_back(20);
+     nums.push_back(30);
+     nums.push_back(40);
      
-    // ek isme hi v.begin() ata hai wo first wale k liye hota hai first elemnt k liye okkh!!.
-    // lats wala agar mugeh chaiye v.end() kar dunga okkh mai!.
+     // yha s array ayega like [10,20,30,40] okkh!...;
 
-    vector<int>::iterator it = marks.begin();
+     // agar mai itterate karne ki koshish karu to wo iterator k through hoga okkh!..
 
-     while(it != marks.end()){
-         cout << *it << " ";
-         it++;
-     }
+    //  vector<int> :: iterator it = nums.begin();
+     
+    // //  for(int it: i){
+    // //       cout << nums[i] << endl;
+    // //  }
 
-    return 0;
+    // agar mughe auto nahi dena to mai iterator lunga okkh vector type ka okkh!.
+
+    // vector<int>:: iterator  it = nums.begin();
+
+    for(auto it = nums.begin(); it != nums.end(); it++){
+        cout << *it << " ";
+    }
+     
+    // abb mai push karna chahta hu first wala okkh!..
+
+    nums.push_front(20);  // isse existing array m 10 push ho jayega okkh!..
+    nums.pop_front();
+    
+    nums.push_back(50); // ye existing array k last wale m push hoga okkh!..
+    //nums.pop_back();  // ye isse last wala pop ho jayega okh!.
+   
+    reverse(nums.begin(), nums.end()); // ye start s leke end tak reverse kar dega okkh!..
+
+    // for(auto it = nums.begin(); it != nums.end(); it++){
+    //       cout << *it << " ";
+    // }
+
+    // getting array by iterator.. 
+
+    list<int> :: iterator it = nums.begin();
+
+    while(it != nums.end()){
+          cout << *it << " ";
+          it ++;
+    }
+
+    // remove an element!>.
+
+    nums.remove(10);
+
+    for(auto it2 = nums.begin(); it2 != nums.end(); it2++){
+          cout << *it2 << " ";
+    }
+     
+    // insert agar karna hoga mughe to mai insert kasie karta hu like mughe pehle 
+    // uski postioning deni padegi and then kya insert karna hai wo dena ppadega okkh!..
+    // for an example!>.
+
+    nums.insert(nums.begin() + 3, 10);
+
+     return 0;
 }
