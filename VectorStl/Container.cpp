@@ -201,6 +201,7 @@ int main() {
 using namespace std;
 
 int main() { 
+
     stack<int> s;
     
     s.push(10);
@@ -226,6 +227,8 @@ int main() {
          cout << s.top() << endl;
            s.pop(); // yha p abhi bhi dout hai todha sa like ki ye kyu aa rha hai okkh! iski jagah kuch aur hona chiaye tha bcz s.pop() to first remove karta tha na like s.pop_first() okkh!..?? 
     }
-
+    
     return 0;
 }
+
+// de-queue:- dubly-standard-queue;
