@@ -232,3 +232,93 @@ int main() {
 }
 
 // de-queue:- dubly-standard-queue;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// map and set..;
+
+#include <iostream>
+#include <map>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+   unordered_map<string, string> table;
+    
+   // insertion ayega abb yha p like isme mughe insert karna hoga, and data key and value m 
+   // m dali jayengi okkh!.. 
+
+   table["in"] = "India";
+
+   table.insert(make_pair<string, string>("In", "Indian"));
+
+   pair<string, string> p;
+   p.first = "br";
+   p.second = "Brazil";
+
+   // abb mughe ise table m add karna hoga okkh!...
+
+   table.insert(p);
+
+  unordered_map<string, string> :: iterator it = table.begin();
+
+  while(it != table.end()){
+       pair<string, string> p = *it;// isse mai first value pajd lunga okkh!.
+       cout << p.first << " " << p.second << " ";
+       it++;
+  }
+
+  cout << table.size();
+
+  table.clear();
+
+  table.erase(table.begin(), table.end());
+   
+  // yha p hamara find wala ata hai okkh!..
+    
+  if(table.find("In") != table.end()){
+       // iska matlb ye hai ki hamare pass wo value present hi nahi hai okkh!.
+       cout << "end tak nahi gya hai iska matlb ye hai ki ye value present hai okkh!" << " ";
+  }
+  else {
+      cout << "iska matlb ye hai ki value present hi nahi hai hamm end tak aa gye table k!";
+  };
+
+  // count m do chize ati hai 0 ya fir 1 okkh!..
+ // if zero to wo presnet hi nahi hai okkh!..
+
+ if(table.count("In") == 1){
+     cout << "ye value present hai" << " ";
+ }
+ else if(table.count("In") == 0){
+      cout << "ye value present hi nahi hai okkjh!" << " ";
+ }  
+ 
+ // dekh count aur fiind mai hamm value dete hai usme okkh!.. like ("In") key type ka 
+ // 
+
+    return 0;
+}
+
