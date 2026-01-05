@@ -34,5 +34,22 @@ int main() {
 
     // erase, clear, find and count 
 
+    st.erase(st.begin(), st.end()); // isse sara earse ho jayega;
+
+    if(st.find(10) != st.end()){
+          cout << "Ye data mughe mil gya hai okh!" << " ";
+    }
+    else{
+         cout << "data not there!" << " ";
+    }
+    
+    // ek count wali bat chit ati hai yha p okkh!..
+
+    if(st.count(10) == 0){
+       cout << "iska mtlb ye hai ki 10 nahi present hai given array me okkh!." << " ";
+    }
+    else if(st.count(10) == 1) {
+         cout << "data present hai okh!." << " ";
+    }
     return 0;
 }
