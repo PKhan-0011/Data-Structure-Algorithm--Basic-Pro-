@@ -1,36 +1,38 @@
-//Peak Element 01,
+//Peak Index in a mountain Array leetcode(852),
+// yha p mughe is case mai sorted nahi diya array okkh! tab bhi hamm binary Search lga rahe hai 
+// bcz yha p t.c O(logn) hai okkh!.
 
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+using namespace std;
 
-// int maxValue(int arr[], int size, int ansIndex){
-//     int s = 0;
-//     int e = size-1;
-//     int mid = s + (e-s)/2;
+ int maxValue(int arr[], int size, int ansIndex){
+    int s = 0;
+    int e = size-1;
+    int mid = s + (e-s)/2;
 
-//     while(s <= e){
-//         if(arr[mid] < arr[mid+1]){
-//              s = mid + 1;
-//         }
-//         else{
-//             ansIndex = mid;
-//             e = mid-1;
-//         }
-//         mid = s + (e-s)/2;
-//     }
-//     return ansIndex;
-// }
+    while(s <= e){
+        if(arr[mid] < arr[mid+1]){
+             s = mid + 1;
+        }
+        else{
+            ansIndex = mid;
+            e = mid-1;
+        }
+        mid = s + (e-s)/2;
+    }
+    return ansIndex;
+}
 
-// int main(){
-//     int arr[] = {1,2,1,3,5,6,4};
-//     int size = 7;
-//     int ansIndex = -1;
+int main(){
+    int arr[] = {1,2,1,3,5,6,4};
+    int size = 7;
+    int ansIndex = -1;
      
-//     int value = maxValue(arr, size, ansIndex);
-//     cout << value << endl;
+    int value = maxValue(arr, size, ansIndex);
+    cout << value << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
 // Pivot index nikalana hai!..;
 
