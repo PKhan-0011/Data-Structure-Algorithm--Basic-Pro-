@@ -38,3 +38,7 @@ int main() {
      return 0;
 }
 
+// find target in 2-d array!..
+// 2d-1d coonvert karna hoga to mai c*i + j;
+// 1d-2d i = mid/col, j = mid%col;
+
