@@ -61,38 +61,51 @@
 using namespace std;
 
 int getOddOccurence(int arr[], int size){
+     int s = 0;
+     int e = size-1;
 
-       unordered_map<int, int> map;
+     while(s <= e){
+          int mid = s + (e-s)/2;
+          // agar odd check karna hoga to mai condition & 1 to yahi odd wala check hoga okkh!..
+          
+          // yha p condtion 4 ayega okkh!..
+          // firstone is s == e;
+            if(s == e){
+                return s;
+            }
+          // second mid left and right dono k barabar hi nahi hai to wo wahi mid return ho jayega.;
+            if(arr[mid] != arr[mid+1] && arr[mid] != arr[mid-1]){
+                  return mid;
+            }
+          // thrird wala left wala barabar hai mid k and uska first odd p hai to right mai jayega else right mai okkh!..
+            if(arr[mid] == arr[mid-1]){
+                  int firstIndex = mid-1;
+                  if(firstIndex & 1){
+                       // ye odd wala hai okh!..
+                       e = mid-1;
+                  }
+                  else{
+                      s = mid+1;
+                  }
+            }
+          // fourth wala right wala if mid right wale k barabar hai to yha p mid hii first element hoga 
+          // agar wohi odd hua to left m jau else right okkh!..
 
-    //   for(int i = 0; i<size; i++){
-    //        ans = ans^arr[i];
-    //   }
-    //   return ans;
-    
-    // frequency count chaiyye mughe isme okkh!..
-
-    for(int i = 0; i<size; i++){
-          map[arr[i]]++;
-    }
-
-    // yha s sabhii ka iterarter nikal lunga okkjh!..
-
-    unordered_map<int, int> :: iterator it = map.begin();
-
-    while(it != map.end()){
-          cout << it->first << it->second << " ";
-           
-          cout << endl;
-
-          if(it->second % 2 != 0){
-              return it->first;
+          if(arr[mid] == arr[mid + 1]){
+              int firstIndex = mid;
+              if(firstIndex & 1){
+                   e = mid - 1;
+              }
+              else {
+                  s = mid + 1;
+              }
           }
-          it ++; 
-    }
+     }
+     return -1;
 }
 
 int main(){  
-    int arr[] = {1,1,2,2,3,3,4,5,5,3,3, 4, 4};
+    int arr[] = {1,2,2,3,3,4,4,5,5,3,3,4,4};
     int size = 13;
      
     int ans = getOddOccurence(arr, size);
