@@ -73,8 +73,8 @@ double getPrecisionValue(int value){
 // precision wale bhi aa jayenge isi mai hi okkh!..
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
-
 
 // ek bar precsion wala dekhna padega!..
 int getQuoitent(int divident, int divisor) {
@@ -105,4 +105,71 @@ int main() {
 
     return 0;
 }
+
+
+// KoKo eat's Banana's!..
+
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <limits.h>
+using namespace std;
+
+int getMax(int arr[], int size){
+     int maxAns = INT_MIN; 
+     for(int i = 0; i<size; i++){
+           if(arr[i] > maxAns){
+               maxAns = arr[i];
+           }
+     }
+     return maxAns;
+}
+
+int getTotalTime(int arr[], int size, int mid){
+       double totalTime = 0;
+       for(int i = 0; i<size; i++){
+            totalTime += ceil((arr[i]) / (double)(mid));
+       }
+       return totalTime;
+}
+
+int getMinimumHoursToEatAllBanana(int arr[], int size, int h){
+      int s = 1;
+      int e = getMax(arr, size);
+
+      int ans = -1;
+
+      while(s < e){
+           int mid = s + (e-s)/2;
+           int getTime = getTotalTime(arr, size, mid);
+
+           if(getTime <= h){
+                ans = mid;
+                e = mid-1;
+           }
+           else {
+               s = mid + 1;
+           }
+      }
+      return ans;
+} 
+
+int main() {
+      int arr[] = {3,6,7,11};
+      int size = 4; 
+      int h = 8;
+
+      int ans = getMinimumHoursToEatAllBanana(arr, size, h);
+
+      cout << ans << " ";
+
+    return 0;
+}
+
+// Precison wale todhe tough hai unko sahi s dekh liyo okkh!...
+// Precison in srt, and precision in divison and divisor.. 
+
+
+// last question minimmum number of days to make buquetes..
+
 
