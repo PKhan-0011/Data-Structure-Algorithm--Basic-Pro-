@@ -106,7 +106,6 @@ int main() {
     return 0;
 }
 
-
 // KoKo eat's Banana's!..
 
 #include <iostream>
@@ -171,5 +170,4 @@ int main() {
 
 
 // last question minimmum number of days to make buquetes..
-
 
