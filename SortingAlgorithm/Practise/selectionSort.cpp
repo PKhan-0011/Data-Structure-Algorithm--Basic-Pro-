@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+// selection sort mai hamm do element ko select karte hai and usko swap karte hai acoording to 
+// bigger and smaller okh!..
+
 void getSortedArrayBySelectionSort(int arr[], int size){
     for(int i = 0; i<size-1; i++){
             int ansIndex = i;
@@ -29,3 +32,6 @@ int main() {
 
     return 0;
 }
+
+// selection sort okkh!.. doo element ko select and jo chota hoga use comapare karke swicth kardo okkh!..
+
