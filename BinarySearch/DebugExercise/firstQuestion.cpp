@@ -30,7 +30,7 @@ int main() {
     return 0;
 }
 
-// sqauree root x; 
+// sqaure root x; 
 
 int mySqrt(int x) {
         if (x == 0)
@@ -49,3 +49,4 @@ int mySqrt(int x) {
         }
         return -1;
     }
+

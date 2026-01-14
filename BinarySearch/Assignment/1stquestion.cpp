@@ -42,3 +42,7 @@ int main () {
       cout << ans << " ";
       return 0;
 }
+
+// iski jo t.c hai wo zada aa rha hai okkh!.. 
+
+// iska optimze version likh!..
