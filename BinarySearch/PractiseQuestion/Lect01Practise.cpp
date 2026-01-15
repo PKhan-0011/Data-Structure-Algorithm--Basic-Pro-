@@ -122,7 +122,7 @@ int main() {
     }
     return ans;
 }
-
+ 
 int main() {
      int arr[10] = {10,20,20,20,20,20,20,20,20,30};
      int size = 10;
