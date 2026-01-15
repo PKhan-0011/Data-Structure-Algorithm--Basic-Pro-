@@ -1,4 +1,4 @@
-//Debug the code. [F](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)ind minimum in rotated sorted array. (Sorting was in ascending order).
+//Debug the code. [F](https://  leetcode.com/problems/find-minimum-in-rotated-sorted-array/)ind minimum in rotated sorted array. (Sorting was in ascending order).
 #include <iostream>
 using namespace std;
 #include <vector>
