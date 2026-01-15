@@ -44,7 +44,4 @@ int main () {
 }
 
 // iski jo t.c hai wo zada aa rha hai okkh!.. 
-
 // iska optimze version likh!..
-
-
