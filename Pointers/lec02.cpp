@@ -24,5 +24,13 @@ int main() {
 
     delete p; // deallocate -> delete hoga isse okkh!..
 
+    // define array in stack memory!..
+    int arr[5]  = {0};
+    cout << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << arr[5] << " ";
+
+   // define array in heap memory!..
+    int *p = new int[5];
+    cout << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << arr[5] << " ";
+
     return 0;
 }
