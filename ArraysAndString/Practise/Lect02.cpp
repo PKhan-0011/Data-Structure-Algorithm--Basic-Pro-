@@ -24,3 +24,16 @@ public:
     }
 };
 
+// Remove all occurence in a substring!..
+// isko aur sahi s karne ki kosihi kario khud s okkh! without in built!..
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+        while(s.find(part) != string:: npos){
+            s.erase(s.find(part), part.length());
+        }
+        return s;
+    }
+};
+
+// T.c O(n/k (n-k)); ye banega okkh!..
