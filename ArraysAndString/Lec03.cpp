@@ -58,7 +58,7 @@
 //     return 0;
 // }
 
-// time complexity = Omax(m, n); space complexity = O(n);
+// time complexity = Omax(m+n); space complexity = O(n);
 
 // Minimum amount of time to collect Garbage!..; leetcode 
 

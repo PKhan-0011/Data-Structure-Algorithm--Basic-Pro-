@@ -8,7 +8,7 @@
 
 class Solution {
 public:
-    string decodeMessage(string key, string message) {
+    string decodeMessage(string key, String message) {
         unordered_map<char, char> mapping;
          
          char space = ' ';
@@ -39,7 +39,7 @@ public:
         // abb iski mapping to dkeh ho gayi hai okkh!...
          // to is case m mughe decoded value niklni hai!.
 
-         string ans = "";
+         String ans = "";
          for(int i = 0; i<message.length(); i++){
               char messageValues = message[i];
               char mappedValue = mapping[messageValues];
@@ -48,3 +48,6 @@ public:
         return ans;
     }
 };
+
+// Minimum time required to collect garbage!..
+

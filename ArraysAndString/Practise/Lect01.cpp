@@ -31,7 +31,7 @@
 #include <iostream>
 using namespace std;
 
-
+ 
 void getNewArray(char arr[]){
      int index = 0;
      while(index != '\0'){
@@ -45,7 +45,7 @@ void getNewArray(char arr[]){
 }
 
 int main() {
-   char arr[1000] = {''};
+   char arr[1000] = {' '};
 
    getNewArray(arr);
 

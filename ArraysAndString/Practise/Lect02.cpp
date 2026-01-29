@@ -74,3 +74,44 @@ public:
          return true;
     }
 };
+
+// Palindromic substrings!..
+
+// plaindromic substrings nikalne s pehle tu substrings nikl okh!..
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int checkPalindrome(string ch, int firstValue, int j){
+      int count = 0;
+      while(firstValue>=0 && j < ch.length() && firstValue<= j){
+         if(ch[firstValue] == ch[j]){
+             count ++;
+             firstValue++;
+             j++;
+         }   
+      }
+      return count;
+}
+
+   
+int main() {
+   string ch = "aabcb";
+   
+   for(int i = 0; i<ch.length(); i++){
+        // plaindromic substring nikalen s ppehel tu substrings nikl okkh!..
+        
+        int firstValue = i;
+        int j = 0;
+
+        int oddLength = checkPalindrome(ch, firstValue, j);
+        int evenLength = checkPalindrome(ch, firstValue, j+1);
+
+        int totalM = oddLength + evenLength;
+
+        cout<< totalM << " ";
+
+   }
+    return 0;
+}
