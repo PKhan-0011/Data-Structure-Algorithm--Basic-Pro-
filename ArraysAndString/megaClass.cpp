@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include<algorithm>
+#include <climits>
 
 class Solution {
 public:
@@ -31,3 +32,37 @@ public:
 
 // Anagram waal question ata hai ek!..
 
+
+
+
+
+
+// Reverse of a string 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+
+}
+
+string reverseWords(string s) {
+        int n = s.length();
+         string ans = "";
+         reverse(s.begin(), s.end());
+
+        for(int i = 0; i<n; i++){
+             string words = "";
+             while(i < n && s[i] != ' '){
+                  words += s[i];
+                  i++;
+             }
+
+             reverse(words.begin(), words.end());
+
+             if(words.length()  > 0){
+                  ans += " " + words;
+             }
+        }
+        return ans.substr(1);
+    }
