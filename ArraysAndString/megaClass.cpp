@@ -11,7 +11,7 @@ public:
           for(int i =0; i<s.length(); i++){
                map.clear();
              for(int j = i; j<s.length(); j++){
-                  char &ch = s[j];
+                  char &ch = s[j]; // bhai ye dhyan rakhio ki ye sirf ek hi value de rha hai! okkh
                   map[ch]++;
 
                   int mini = INT_MAX;
@@ -30,7 +30,50 @@ public:
 };
 
 
-// Anagram waal question ata hai ek!..
+//Sherlock and Anagram waal question ata hai ek!..
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+}
+
+class solution {
+       public: 
+
+       int sherLockAndAnagrams(string s){
+
+           unordered_map<string, int> map;
+           int count = 0;
+
+           for(int i = 0; i<s.size(); i++){
+               for(int j = i; j<s.size(); j++){
+                      string ch = s.substr(i, j-i+1);
+                      // means hame yha p substrings le rahe hai okkh!..
+
+                      sort(ch.begin(), ch.end());
+
+                      map[ch]++;
+               }
+           }
+
+           // abb hamne yha p aake like mapp m sari strings ko rkh liya hai okkh!.. abb jo pairs wale hai 
+           // unko return kardo okkh!..
+
+           for(auto i: map){
+                 if(i.second > 1){
+                      count++;
+                 }
+           }
+           return count;
+       }
+}
+
+
+// iss anagarm wale ka logic yahi hai like ki substrings nikalo
+// usko sort kiya usko map m daal and frequcy count nikal liya hai okh! 
+// uske baad map mai loop chla do and find karo ki jo bhi 1 se zada ahi wo sabhi group hai anagarm k okkh!..
 
 
 
@@ -41,10 +84,6 @@ public:
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
-int main() {
-
-}
 
 string reverseWords(string s) {
         int n = s.length();
