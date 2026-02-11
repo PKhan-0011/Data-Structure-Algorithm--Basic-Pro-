@@ -416,3 +416,5 @@ int main () {
     return 0;
 }
 
+// palindromic substrings!.. substrings count karega ki kitne substrings hai mere pass okh!..
+
