@@ -1,107 +1,104 @@
-// Factorila of 5!..
+//1. Factorila of 5!..
+#include <iostream>
+using namespace std;
 
-// #include <iostream>
-// using namespace std;
+int getFactorial(int n){
+    // base case ata hai yha p ek to sabse pehle okkh!..
+    if(n == 0 || n == 1){
+          return 1;
+    } 
+    int finalAns = n*getFactorial(n-1);
+    return finalAns;
+}
 
-// int getFactorial(int n){
-//     // base case ata hai yha p ek to sabse pehle okkh!..
-//     if(n == 0 || n == 1){
-//           return 1;
-//     } 
-//     int finalAns = n*getFactorial(n-1);
-//     return finalAns;
-// }
-
-// int main(){
-//     int n = 5;
+int main(){
+    int n = 5;
     
-//     int finalAns = getFactorial(n);
+    int finalAns = getFactorial(n);
 
-//     cout << finalAns;
+    cout << finalAns;
 
-//     return 0;
-// }
+    return 0;
+}
 
-// Print counting by a recusrion method!..
+//2. Print counting by a recusrion method!..
+#include <iostream>
+using namespace std;
 
+void getNumber(int n){
+    // base case ho gya hai na tera !..
 
-// #include <iostream>
-// using namespace std;
-
-// void getNumber(int n){
-//     // base case ho gya hai na tera !..
-
-//     if(n == 0){
-//           return;
-//     }
+    if(n == 0){
+          return;
+    }
     
-//    // cout << n << " ";
+   // cout << n << " ";
 
-//     getNumber(n-1);
+    getNumber(n-1);
 
-//     cout << n << " ";
+    cout << n << " ";
 
-// }
+}
 
-// int main(){
-//     int n = 5;
-//     getNumber(n);
-//     return 0;
-// }
+int main(){
+    int n = 5;
+    getNumber(n);
+    return 0;
+}
 
-// power of 2!.. ki bat chit okkh!..
+//3. power of 2!.. ki bat chit okkh!..
+#include <iostream>
+using namespace std;
 
-// #include <iostream>
-// using namespace std;
+int getPower(int n){
+      if(n == 1){
+        return 2;
+      }
 
-// int getPower(int n){
-//       if(n == 1){
-//         return 2;
-//       }
+      int finalAnswer = 2*getPower(n-1);
 
-//       int finalAnswer = 2*getPower(n-1);
-
-//       return finalAnswer;
-// }
+      return finalAnswer;
+}
 
 
-// int main() {
+int main() {
 
-//     int n = 5;
+    int n = 5;
 
-//     int answer = getPower(n);
+    int answer = getPower(n);
     
-//     cout << answer << " ";
+    cout << answer << " ";
 
-//     return 0;
-// }
-
-// #include <iostream>
-// using namespace std;
-
-// int fib(int n){
-//       if(n == 1 || n == 0){
-//         return n;
-//       }
-
-//       int finalAnswer = fib(n-1) + fib(n-2);
-
-//       return finalAnswer;
-// }
+    return 0;
+}
 
 
-// int main() {
+//4. fibonaci series!..
+#include <iostream>
+using namespace std;
 
-//     int n = 8;
+int fib(int n){
+      if(n == 1 || n == 0){
+        return n;
+      }
 
-//     int answer = fib(n);
+      int finalAnswer = fib(n-1) + fib(n-2);
+
+      return finalAnswer;
+}
+
+int main() {
+
+    int n = 8;
+
+    int answer = fib(n);
     
-//     cout << answer << " ";
+    cout << answer << " ";
 
-//     return 0;
-// }
+    return 0;
+}
 
-
+//5. get Sum..
 #include <iostream>
 using namespace std;
 
