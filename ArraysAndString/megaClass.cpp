@@ -3,6 +3,9 @@
 #include<algorithm>
 #include <climits>
 
+int main() {
+
+}
 class Solution {
 public:
     int beautySum(string s) {
@@ -31,7 +34,6 @@ public:
 
 
 //Sherlock and Anagram waal question ata hai ek!..
-
 #include <iostream>
 using namespace std;
 
@@ -74,11 +76,6 @@ class solution {
 // iss anagarm wale ka logic yahi hai like ki substrings nikalo
 // usko sort kiya usko map m daal and frequcy count nikal liya hai okh! 
 // uske baad map mai loop chla do and find karo ki jo bhi 1 se zada ahi wo sabhi group hai anagarm k okkh!..
-
-
-
-
-
 
 // Reverse of a string 
 #include <iostream>
