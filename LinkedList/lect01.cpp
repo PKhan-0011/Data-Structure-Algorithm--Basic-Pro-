@@ -29,7 +29,11 @@ Node* InsertHead(int value, Node* head, Node* tail){
         newNode->next = head;
         head = newNode;
      }
+
+     return head;
 }
+
+// ternaitry opertor ka use karo like;
 
 void print(Node* head){
      Node * temp = head;
@@ -40,6 +44,36 @@ void print(Node* head){
      }
 }
 
+Node* InsertedAtTail(int value, Node* &head, Node* &tail){
+      if(head->next == NULL && tail->next == NULL){
+         // kuch hai hi ni uske pass!..
+         // mughe create karna padega okkh!..
+         Node* TailNode = new Node(50);
+         head = TailNode;
+         tail = TailNode;
+      }
+
+      // agar mere pass already sab chiz hua like already mere pass data hua 
+      else{
+            Node* TailNode = new Node(50);
+            tail->next = TailNode;
+            tail = TailNode;
+      }
+   return tail;
+}
+
+int getLength(Node* head, Node* tail, int count){
+     // agar null hai to fir mai kuch nahi karunga okkh!..
+     if(head == NULL && tail == NULL){
+           return count;
+     }
+     else if(head->next != NULL){
+          count++;
+          head = head->next;
+     }
+    return count;
+}
+
 int main() {
     Node* head = NULL;
     Node* tail = NULL;
@@ -47,8 +81,15 @@ int main() {
    head = InsertHead(10, head, tail);
    head = InsertHead(20, head, tail);
    head = InsertHead(30, head, tail);
-
+    print(head);
+   tail = InsertedAtTail(40, head, tail);
    print(head);
+
+ int count = 0;
+
+ int count02 =  getLength(head, tail, count);
+  
+ cout << count02 << endl;
 
     return 0;
 }
