@@ -32,9 +32,7 @@ Node* InsertHead(int value, Node* head, Node* tail){
 
      return head;
 }
-
 // ternaitry opertor ka use karo like;
-
 void print(Node* head){
      Node * temp = head;
 
@@ -74,6 +72,81 @@ int getLength(Node* head, Node* tail, int count){
     return count;
 }
 
+void insertAtPosition(int position, int value, Node* head, Node* tail, int count02){
+    if(position == 1){
+         // head wali bat chit ayegi okkh!..
+         head = InsertHead(value, head, tail);
+    }
+
+    else if(position ==  count02+ 1){
+         tail = InsertedAtTail(value, head, tail);
+    }
+    else{
+         // is case m mai dekh rha hu like ki postion zada hai like more than 1 or less than tail okh!.
+         Node* temp = head;
+         for(int i = 0; i<position-2; i++){
+              temp = temp->next;
+         }
+         // yha p jo temp hai wo uski postion aa gyii hai barabar okkh!..
+         Node* newNode = new Node(25);
+         // step's are important!.. 
+         newNode->next = temp->next;
+         temp->next = newNode;
+    }
+}
+
+bool SearchInLinkedList(Node* head, Node* Tail, int value){
+       Node* temp = head;
+       while(temp-> next != NULL){
+            if(temp->data == value){
+                 return true;
+            }
+            temp = temp->next;
+       }
+       return false;    
+}
+
+void deleteNodes(Node* head, Node* tail, int postion){
+     // sabse first case jo ayega wo like yhai hai ki agar head aur tail dono null hai!.
+     // is case m empty ka case h ye okkh!..
+     if(head == NULL && tail == NULL){
+           cout << "Empty wala case h bhai ye!.." << " "; 
+     }
+
+     //jab ek hi node ho okkh!..
+     else if(head == tail){
+            // means ek hi node hai unke pass okkh!..
+            Node* temp = head;
+            head = NULL;
+            tail = NULL;
+            delete temp;
+     }
+     else {
+            // ye wala case h jab hamare pass like multiple nodes hai!..
+             if(postion == 1){
+                 // ki mai first wala delete karna chahta hu okkkh!..
+                 Node* temp = head;
+                 head = temp->next;// update hai ye!..
+                 temp->next = NULL;
+                 delete temp;
+             }
+             
+             // agar koi alg postion hui us case m mughe alag hi karna hai kuch okkh!.
+             else{
+                // postion bich ka hai kuch okkh!..
+                Node* temp = head;
+                for(int i = 0; i<postion-2; i++){
+                    temp = temp->next;
+                }
+                Node* newNode = temp->next;
+                temp->next = newNode->next;
+                newNode->next = NULL;
+                delete newNode;
+             }
+     }
+}
+
+
 int main() {
     Node* head = NULL;
     Node* tail = NULL;
@@ -86,10 +159,13 @@ int main() {
    print(head);
 
  int count = 0;
-
  int count02 =  getLength(head, tail, count);
-  
  cout << count02 << endl;
+
+ // insertion in between!..
+
+ insertAtPosition(3, 45, head, tail, count02);
 
     return 0;
 }
+
