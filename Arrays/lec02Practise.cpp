@@ -147,46 +147,104 @@
 
 // ek mera three sum ata hai iskp dhyan s karne ki koshish karioo kya hai ye okkh!.
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <algorithm>
+// #include <vector>
+// using namespace std;
 
 
-vector<vector<int>> getThreeSum(vector<int> &arr, int size, int target){
-      vector<vector<int>> ans01; // ye empty array liya hai hamne okkh! isme mughe data push karna hai!.with indexing jo jo mere pass hai index based okkh!..
-      for(int i = 0; i<size; i++){
-           for(int j = 0; j<size; j++){
-             for(int k = 0; k<size; k++){
-                   if(arr[i] + arr[j] + arr[k] == target){
-                       vector<int> temp; // temp array bane ga ekk okkh!..
-                       // abb temp array me ye data dalo okkh,..
-                       temp.push_back(arr[i]); 
-                       temp.push_back(arr[j]); 
-                       temp.push_back(arr[k]);
-                       ans01.push_back(temp);
-                       return ans01;
-                   }
-             }
-           }
-      }
-      return ans01;
-}
+// vector<vector<int>> getThreeSum(vector<int> &arr, int size, int target){
+//       vector<vector<int>> ans01; // ye empty array liya hai hamne okkh! isme mughe data push karna hai!.with indexing jo jo mere pass hai index based okkh!..
+//       for(int i = 0; i<size; i++){
+//            for(int j = 0; j<size; j++){
+//              for(int k = 0; k<size; k++){
+//                    if(arr[i] + arr[j] + arr[k] == target){
+//                        vector<int> temp; // temp array bane ga ekk okkh!..
+//                        // abb temp array me ye data dalo okkh,..
+//                        temp.push_back(arr[i]); 
+//                        temp.push_back(arr[j]); 
+//                        temp.push_back(arr[k]);
+//                        ans01.push_back(temp);
+//                        return ans01;
+//                    }
+//              }
+//            }
+//       }
+//       return ans01;
+// }
 
-int main (){
-    vector<int> arr = {10, 20, 30, 40};
-    int size = 4;
-    int target = 60;
-    vector<vector<int>> ans = getThreeSum(arr, size, target);
+// int main (){
+//     vector<int> arr = {10, 20, 30, 40};
+//     int size = 4;
+//     int target = 60;
+//     vector<vector<int>> ans = getThreeSum(arr, size, target);
     
-    // agar mugeh data dekhna hoga to mai uske upar ek opreration perform karunga okkh!
-    // jisse hamm data findout kar llenge okkh!.. loop jaise lagate the na arry mai waise hi yha bhi loop lgaynege okkh!..
+//     // agar mugeh data dekhna hoga to mai uske upar ek opreration perform karunga okkh!
+//     // jisse hamm data findout kar llenge okkh!.. loop jaise lagate the na arry mai waise hi yha bhi loop lgaynege okkh!..
 
-   for(auto val : ans){
-       for(auto getOriginalVal: val){
-           cout << getOriginalVal << " ";
+//    for(auto val : ans){
+//        for(auto getOriginalVal: val){
+//            cout << getOriginalVal << " ";
+//        }
+//    }
+
+//    return 0;
+// }
+
+
+ #include <iostream>
+ #include <algorithm>
+ #include <vector>
+ using namespace std;
+
+ void getShiftArray(int arr[], int size, int shift){
+       // sabse s pehle mughe shifting nikalni hai okkh!>.
+       int finalShift = shift%size;
+       if(finalShift == 0){
+          return ;
        }
-   }
+       
+       // yha p like more than one shift hai!..
+       // step1 array temp banega okkh!..
+       int temp[1000];
+       int index = 0;
+       for(int i = size-finalShift; i<size; i++){
+           temp[index] = arr[i];
+           index++;
+       }
 
-   return 0;
-}
+       // temp kk andar [50,60];
+       // step2 shift honge sare values!..
+       for(int i = size-1; i>=0; i--){
+            arr[i] = arr[i-finalShift];
+       }
+       // step3 temp array ki value array m chipka dunga okkh!..
+
+       for(int i = 0; i<shift; i++){
+            arr[i] = temp[i];
+       }
+
+ }
+
+ int main() {
+    int arr[6] = {10,20,30,40,50,60};
+    int size = 6;
+    int shift = 5;
+    
+    cout << "Before shifting" << " ";
+
+    for(int i = 0; i<size; i++){
+          cout << arr[i]<< " ";
+    }
+     cout << endl;
+
+    getShiftArray(arr, size, shift);
+
+    cout << "After shift" << " ";
+
+     for(int i = 0; i<size; i++){
+          cout << arr[i]<< " ";
+    }
+
+    return 0;
+ }
