@@ -129,7 +129,7 @@ public:
      else{
          ListNode* prev = head;
          ListNode* temp = head->next;
-         
+
         while(temp != NULL){
             //  temp = prev->next; ye bar bar update kar de rha ahi bass yahi dikat hai iksi okkh!..
              // sabse pehle mai yha check karunga like ki ye aage ka data aur prev ka data dono barabar hai ya nhai okkh! agr barabar hua to remove okkh!.
@@ -143,9 +143,108 @@ public:
                  temp = temp->next;
                  prev = prev->next;
              }
-             temp = prev->next;
+             temp = prev->next; // ye mai bhul jata hu iska dhyan rakhio sahi s okkh!>
         }
      }
         return head;
+    }
+};
+
+
+// gfg quuestion Sort a linkedlist 0,s 1's 2's!..
+// zeroCount, OneCount, and Two's Count in a linkedlist!..
+
+// mai isko do tarikhe s solve kar skte hai first extra sppace leke like extra linkedlist leke =!..
+// aur ek ek same linkedlist m hi karde!..
+
+class Node{
+      public:
+      Node* next;
+      int val;
+
+      Node(int value){
+          next = NULL;
+          val = value;
+      }
+};
+
+class Solution {
+  public:
+    
+    void insertAtTail(Node* toMove, Node* head, Node* tail){
+          // ek ayega tera like empty wala case okkh!..
+          if(head == NULL && tail == NULL){
+               head = toMove;
+               tail = toMove;
+          }
+          else {
+              // agar empty nahi hai us case m kya karna hai okkh!..
+               tail->next = toMove;
+               tail = tail->next;
+          }
+    }
+
+
+    Node* segregate(Node* head) {
+        // code here
+        Node* zeroHead = NULL;
+        Node* zeroTail = NULL;
+
+        Node* oneHead = NULL;
+        Node* oneTail = NULL;
+
+        Node* twoHead = NULL;
+        Node* twoTail = NULL;
+        
+        Node* temp = head;
+        
+        while(temp != NULL){
+             Node* toMove = temp;
+             temp = temp->next;
+             toMove->next = NULL;
+             
+             // yha s toMOve jo hai wo NULL mark ho gya hai ye dhyan s kario okkh!..
+              // abb yha s check karle like ki jo tera toMove hai wo 0 hai ya 1 hai ya 2 hai okkh!..
+            if(toMove->val == 0){
+                 insertAtTail(toMove, zeroHead, zeroTail);
+            }
+            else if(toMove->val == 1){
+                insertAtTail(toMove, oneHead, oneTail);
+            }
+            else {
+                 insertAtTail(toMove, twoHead, twoTail);
+            }
+        }
+
+        // abb jaise hi loop kahtm hoga okkh!..
+        // to mere pass zeroCount hai oneCount ka hai aur 2's count ka bhi hai okkh!..
+        // abb mughe zeroCount oneCount and twoCount ko merge karna hai okkh!..
+         
+        if(zeroHead != NULL){
+              // mere pass zero ka sara data hai okkh!.
+              if(oneHead != NULL){
+                  // yha p like oneHead jo hai wo null nhai hai abb mai connect kar sakta hu okkh!..
+                  zeroTail->next = oneHead;
+                  // yha p twoHead null ho ya na ho dono chalega okkh!..
+                  oneTail->next = twoHead;
+              }else{
+                 // agar one null hai to zeroHead two Head s nil jayega okkh!..
+                 // yha s twoCount nahi bhi hoga to chalega and twoHead ko check karne ki need bhi nahi hai okkh!..
+                   zeroTail->next = twoHead;
+              }
+              return zeroHead;
+        }
+        else{
+            // yha p zeroHead nullhai okkh!..
+            if(oneHead != NULL){
+                 oneTail->next = twoHead;
+                 // mai agar niche wala nhi bhi karunga to chal jayega okkh!.
+                 // return oneHead;
+            }
+            else{
+                  return twoHead;
+            }
+            return oneHead;
+        }
     }
 };
