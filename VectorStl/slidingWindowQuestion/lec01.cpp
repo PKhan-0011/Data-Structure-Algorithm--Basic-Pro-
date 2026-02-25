@@ -112,3 +112,75 @@ public:
         return total == INT_MAX ? 0 : total;
     }
 };
+
+// Maximum Sum of SubArray of size K!..
+// sliding window wali bat chit lagegi yha p okh!..
+
+
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int sumOfArray(int arr[], int size, int k){
+    int low = 0;
+    int high = k-1;
+    
+    int sum = 0;
+    int maxi = INT_MIN;
+
+    for(int i = 0; i<size; i++){
+        sum += arr[i];
+    }
+
+    maxi = sum;
+
+    while(high+1<size){
+        high++;
+        sum = sum - arr[low] +arr[high];
+        low++;
+        maxi  = max(sum, maxi); 
+    }
+    return maxi;
+}
+
+int main() {
+    int arr[] = {100,200,300,400};
+    int size = 4;
+    int k = 2;
+    int sum = sumOfArray(arr, size, k);
+
+    return 0;
+}
+
+
+// fruits in a bucket!.. leetcode! sliding window!>.
+#include <iostream>
+#include <unordered_map>
+
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        int bucket = 2; // according to question!..
+        int res = INT_MIN;
+        int low = 0;
+        
+        unordered_map<int, int> map;
+
+        for(int high = 0; high<fruits.size(); high++){
+             map[fruits[high]]++;
+             
+             // abb yha s like while loop for kam wale ke liye lagega okkh!..
+             while(map.size() > bucket){
+                 map[fruits[low]]--;
+                 low++;
+                 if(map[fruits[low-1]] == 0){
+                     map.erase(fruits[low-1]);
+                 }
+             }
+             // yha k matlb ye hai like ki bucket ki size shai hai!.. map ke according!..
+             int len = high - low + 1;
+             res = max(len, res);
+        }
+        return res == INT_MIN ? -1 : res;
+    }
+};
