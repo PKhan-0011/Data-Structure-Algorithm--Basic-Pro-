@@ -85,7 +85,6 @@ int main(){
 }
 
 // zero count and oneCount wale question;
-
 #include <iostream>
 using namespace std;
 
