@@ -87,7 +87,6 @@ public:
 
 
 //107. Binary Tree Level Order Traversal II
-
 class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
@@ -129,5 +128,52 @@ public:
         }
          reverse(ans.begin(), ans.end());
        return ans;
+    }
+};
+
+
+class Solution {
+  public:
+    vector<int> zigZagTraversal(TreeNode* root) {
+        // code here
+        
+        if(root == NULL){
+            return {};
+        };
+        
+        vector<int> ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        bool isLeftToRight = true;
+        
+        while(!q.empty()){
+             int size = q.size();
+             vector<int> arr(size);
+             
+             for(int i = 0; i<size; i++){
+                 
+                 TreeNode* node = q.front();
+                                   q.pop();
+                 
+                 int index = isLeftToRight ? i : size-i-1;
+                 arr[index] = node->val;
+                 
+                 if(node->left != NULL){
+                     q.push(node->left);
+                 }
+                 
+                 if(node->right != NULL){
+                     q.push(node->right);
+                 }
+             }
+             
+             for(int i = 0; i<size; i++){
+                 ans.push_back(arr[i]);
+             };
+             
+             isLeftToRight = !isLeftToRight;     
+        }
+        return ans;
     }
 };
