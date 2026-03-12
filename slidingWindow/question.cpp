@@ -86,3 +86,6 @@ public:
 // NOTE** agar maximum subArray/subString ki bat karega to sliding window but usme distinct/non-duplicate/duplicates/reapating hai isme mughe map 
 // sochna hota hai okkh!..
 
+// dekh sliding window m 2 type ki problems ati hai like 1st. varaible maximum size aur variable minimum window..
+// variable maximum ki agar bate hongi to usme hame false condtion p shriink karte hai.. aur minimum window ki bat 
+// hogi to true condtion p shrink hoga!..
