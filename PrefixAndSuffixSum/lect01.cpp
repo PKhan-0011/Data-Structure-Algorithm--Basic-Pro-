@@ -41,6 +41,37 @@ int main(){
     return 0;
 }
 
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        // do extra space le rha hu mai isme that's why 
+        // toodha bekar apprach hai ye okkh!..
+        
+        int n = nums.size();
+
+        vector<int> prefix(n);
+        prefix[0] = nums[0];
+        vector<int> suffix(n);
+        suffix[n-1] = nums[n-1];
+
+         for(int i = 1; i<nums.size(); i++){
+              prefix[i] = prefix[i-1] + nums[i];
+         }
+
+         for(int i = n-2; i>=0; i--){
+              suffix[i] = suffix[i+1] + nums[i]; 
+         } 
+
+         // ek aur loop lagega yha p like jisse mai compare karunga suffix and prefix ki ki wo barabar hai bhi ya nhai okkh!..
+         for(int i = 0; i<n; i++){
+              if(prefix[i] == suffix[i]){
+                  return i;
+              }
+         }
+         return -1;
+    }
+};
+
 // ye above wala optimize nahi hai okkh!..
 // isko optimize tughe karna hai like kcuh idea leke okkh!..
 
