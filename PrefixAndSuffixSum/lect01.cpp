@@ -75,3 +75,32 @@ public:
 // ye above wala optimize nahi hai okkh!..
 // isko optimize tughe karna hai like kcuh idea leke okkh!..
 
+#include <iostream>
+using namespace std;
+
+
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        // do extra space le rha hu mai isme that's why 
+        // toodha bekar apprach hai ye okkh!..
+        int n = nums.size();
+
+        int sum = 0;
+        for(int i = 0; i<nums.size(); i++){
+              sum += nums[i];
+        }
+        
+        //yha s sum around 32 aa gyi hai ookkh!..
+        
+        int left = 0;
+        for(int i = 0; i< nums.size(); i++){
+              int right = sum - nums[i] - left;
+              if(nums[right] == nums[left]){
+                return i;
+              }
+              left += nums[i];
+        }
+          return -1;      
+    }
+};
