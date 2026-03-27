@@ -36,3 +36,29 @@ public:
 };
 
 
+// 2nd question 2446. Determine if Two Events Have Conflict
+
+class Solution {
+public:
+    
+    int toMinute(string t){
+         int hours = stoi(t.substr(0,2));
+         int minutes = stoi(t.substr(3,2));
+         return hours*60 + minutes; 
+    }
+   
+    bool haveConflict(vector<string>& event1, vector<string>& event2) {
+         int start1 = toMinute(event1[0]);
+         int end1 = toMinute(event1[1]);
+
+         int start2 = toMinute(event2[0]);
+         int end2 = toMinute(event2[1]);
+
+         if(end1 >= start2 && end2 >= start1){
+             // yha p overlap ho rha hai hai bhia okkh!..
+             return true;
+         }    
+        else
+        return false;
+    }
+};
