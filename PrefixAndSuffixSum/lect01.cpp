@@ -96,7 +96,7 @@ public:
         int left = 0;
         for(int i = 0; i< nums.size(); i++){
               int right = sum - nums[i] - left;
-              if(nums[right] == nums[left]){
+              if(left == right){
                 return i;
               }
               left += nums[i];

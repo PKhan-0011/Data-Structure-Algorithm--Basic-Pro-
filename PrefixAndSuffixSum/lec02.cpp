@@ -7,7 +7,6 @@
 #include <algorithm>
 using namespace std;
 
-
 class Solution {
      public: 
       int subArraySum(vector<int> &nums, int k ){
@@ -18,13 +17,11 @@ class Solution {
           int sum = 0;
 
           for(int i = 0; i<nums.size(); i++){
-                  sum += nums[i];
-
-                  if(map.find(sum - k) != map.end()){
-                       count += map[sum-k];
-                  }
-
-                  map[sum]++;
+               sum += nums[i];
+               int diff = sum-k;
+               int res = map[diff];
+               count += res;
+               map[sum]++;
           }
         return count;
       }
