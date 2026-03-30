@@ -33,3 +33,37 @@ class solution {
         return ans;
      }
 };
+
+
+// Next Greater Element!.. 2nd..
+// nums [1,2,3,4,3]
+
+class solution {
+    public: 
+     vector<int> NextGreaterEle(vector<int>& arr){
+        vector<int> ans;
+        int n = arr.size();
+        stack<int> st;
+        ans.push_back(-1);
+        st.push(arr[n-1]);
+          for(int i = 2*n-1; i >= 0; i--){
+             while(!st.empty() && st.top() <= arr[i % n]){
+                  st.pop();
+             }
+             
+             if(st.empty()){
+                  ans.push_back(-1);
+                  st.push(arr[i % n]);
+             }
+             
+             else{
+                  ans.push_back(st.top());
+                  st.push(arr[i % n]);
+             }
+        }
+         reverse(ans.begin(), ans.end());
+        return ans;
+     }
+};
+
+// isme kahi na kahi galti hai isko dhyan s kario ek aur bar!...
