@@ -1,21 +1,20 @@
-// Previous Smaller Element!..
 
 #include <iostream>
+using namespace std;
 #include <vector>
 #include <stack>
-using namespace std;
+#include <algorithm>
 
 class Solution {
   public:
-    vector<int> prevSmaller(vector<int>& arr) {
+    vector<int> nextSmallerEle(vector<int>& arr) {
         //  code here
          vector<int> ans;
+        int n = arr.size();
         stack<int> st;
-        
-        st.push(arr[0]);
         ans.push_back(-1);
-        
-        for(int i = 1; i<arr.size(); i++){
+        st.push(arr[n-1]);
+          for(int i = n-2; i >= 0; i--){
              while(!st.empty() && st.top() >= arr[i]){
                   st.pop();
              }
@@ -30,8 +29,7 @@ class Solution {
                   st.push(arr[i]);
              }
         }
+         reverse(ans.begin(), ans.end());
         return ans;
     }
 };
-
-// [1,5,0,3,4,5];
