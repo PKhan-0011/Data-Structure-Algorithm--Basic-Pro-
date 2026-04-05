@@ -19,7 +19,7 @@ Node* reverseList(Node* head){
     Node* prev = NULL;
     Node* curr = head;
 
-    // ek to ye recusrivve tarikhe s ho sakta hai and ye ek to
+    // ek  to ye recusrivve tarikhe s ho sakta hai and ye ek to
     // and ek ye iterative tarikhe s okkh!..
     while(curr != NULL){
         Node* forward = curr->next;
