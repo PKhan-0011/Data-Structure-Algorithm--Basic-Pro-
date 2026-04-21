@@ -8,13 +8,26 @@ using namespace std;
 
 class Solution {
 public:
+    
+   struct  comp 
+   {
+     bool operator()(pair<int, int> &a, pair<int, int> &b){
+        if(a.first != b.first){
+              return a.first > b.first;
+        }
+
+        return b.second > a.second;
+     }
+   };
+   
+
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> map;
         
         for(int i = 0; i<nums.size(); i++){
              map[nums[i]]++;
         }
-        priority_queue< pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+        priority_queue< pair<int, int>, vector<pair<int, int>>, comp> pq;
         
         for(auto i: map){
             pq.push({i.second, i.first});
