@@ -112,7 +112,6 @@ int getSum(int n){
       return finalAnswer;
 }
 
-
 int main() {
 
     int n = 5;
