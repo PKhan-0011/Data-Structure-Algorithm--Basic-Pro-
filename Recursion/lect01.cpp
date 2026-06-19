@@ -16,6 +16,7 @@ int main(){
     // return ka matlb ye hota hai like ki jha s function call aya tha wha chla jayega okkh!..
     int ans  = getAllFactorials(5);
     cout << ans << " "; 
+
     
     return 0; // iska mtlb ye hoga ki kisi bhi function k pass wapas nahi jayega okkh!..
 }
@@ -46,17 +47,17 @@ int main(){
 }
 
 //3. power of 2!.. ki bat chit okkh!..
-#include <iostream>
-using namespace std;
 
-int getPower(int n){
-      if(n == 1){
-        return 2;
-      }
+int getPower(int n) {
+     // base case ayega yha p okkh!..
+     if(n == 0){
+         return 1;
+     }
 
-      int finalAnswer = 2*getPower(n-1);
+     // function call 
+     int finalAns = 2 * getPower(n-1);
 
-      return finalAnswer;
+     return finalAns;
 }
 
 
@@ -119,5 +120,29 @@ int main() {
     
     cout << answer << " ";
 
+    return 0;
+}
+
+// fibaonaci series yha p do recusrion lagegi okkh!..
+
+#include <iostream>
+using namespace std;
+
+int fibo(int n){
+      // base case!>.
+      if(n == 0 || n == 1){
+           return n;
+      }
+
+      int ans = fib(n-2) + fib(n-1);
+
+      return ans;
+}
+
+int main(){
+    int n = 5;
+    int finalAnswer = fibo(n);
+
+    cout << finalAnswer << " ";
     return 0;
 }
