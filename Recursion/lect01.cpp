@@ -2,23 +2,22 @@
 #include <iostream>
 using namespace std;
 
-int getFactorial(int n){
-    // base case ata hai yha p ek to sabse pehle okkh!..
+int getAllFactorials(int n){
+    // base case!..
     if(n == 0 || n == 1){
           return 1;
-    } 
-    int finalAns = n*getFactorial(n-1);
+    }
+
+    int finalAns = n * getAllFactorials(n-1);
     return finalAns;
 }
 
 int main(){
-    int n = 5;
+    // return ka matlb ye hota hai like ki jha s function call aya tha wha chla jayega okkh!..
+    int ans  = getAllFactorials(5);
+    cout << ans << " "; 
     
-    int finalAns = getFactorial(n);
-
-    cout << finalAns;
-
-    return 0;
+    return 0; // iska mtlb ye hoga ki kisi bhi function k pass wapas nahi jayega okkh!..
 }
 
 //2. Print counting by a recusrion method!..
@@ -109,7 +108,7 @@ int getSum(int n){
 
       int finalAnswer = n  + getSum(n-1);
 
-      return finalAnswer;
+      return finalAnswer; 
 }
 
 int main() {
