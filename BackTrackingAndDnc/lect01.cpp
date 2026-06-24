@@ -45,3 +45,60 @@ int main(){
 
     return 0;
 }
+
+
+// leetcode 88 question hai ye okkh!..
+
+class Solution {
+public:
+    
+    void mergeTwoArray(vector<int>& nums1, int m, vector<int>& nums2, int n, vector<int> &ans){
+           int i = 0;
+           int j = 0;
+
+           while(i < nums1.size() && j < nums2.size()){
+                 if( nums2[j] > nums1[i]){
+                      ans.push_back(nums1[i]);
+                      i++;
+                 }
+                 else{
+                     ans.push_back(nums2[j]);
+                     j++;
+                 }
+           }
+
+           // yha p abb like i and j dono m s ek out of bound ja chuka hai..
+           while(i < nums1.size()){
+               ans.push_back(nums1[i]);
+               i++;
+           }
+
+           while(j < nums2.size()){
+             ans.push_back(nums2[j]);
+             j++;
+           }
+    }
+
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+         vector<int> ans;
+
+         while(nums1.size() > m){
+             nums1.pop_back();
+         }
+
+         //similarly tera nums2 m bhi yhi hone wala hai okh!...
+
+             while(nums2.size() > n){
+                nums2.pop_back();
+             }
+         
+
+         mergeTwoArray(nums1, m, nums2, n, ans);
+
+         nums1 = ans; //ye wala smjh hi nahi aya yrr to be honest..
+
+         for(auto i : ans){
+             cout << i << " ";
+         }
+    }
+};
